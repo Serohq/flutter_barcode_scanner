@@ -4,29 +4,29 @@ version '1.0-SNAPSHOT'
 buildscript {
     repositories {
         google()
-        mavenCentral() // Use mavenCentral() instead of deprecated jcenter()
+        mavenCentral() // Replace jcenter with mavenCentral
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.5' // Use the latest compatible Gradle version
+        classpath 'com.android.tools.build:gradle:7.3.1' // Use a compatible version
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        mavenCentral() // Ensure mavenCentral() is used for dependency resolution
+        mavenCentral() // Ensure mavenCentral is used
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 34 // Updated to the latest stable compile SDK version
+    compileSdkVersion 34 // Use the latest stable SDK version
 
     defaultConfig {
-        minSdkVersion 21 // Minimum supported Android version
-        targetSdkVersion 34 // Target the same version as compileSdkVersion
+        minSdkVersion 21 // Set a minimum version compatible with modern libraries
+        targetSdkVersion 34 // Match the compileSdkVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,24 +34,22 @@ android {
         disable 'InvalidPackage'
     }
 
-    // Namespace property added as required by the latest Android Gradle Plugin
+    // Namespace property as required by the latest Android Gradle Plugin
     namespace 'com.amolg.flutterbarcodescanner'
 }
 
 dependencies {
-    // Barcode scanning and Google Play Services dependencies
+    // Dependencies for barcode scanning and Firebase ML Kit
     implementation 'com.google.android.gms:play-services-vision:20.1.3'
     implementation 'com.google.mlkit:barcode-scanning:17.0.3'
     implementation 'com.google.android.gms:play-services-base:18.2.1'
     implementation 'com.google.android.gms:play-services-tasks:18.0.2'
-
-    // Firebase and Transport dependencies
     implementation 'com.google.firebase:firebase-components:17.1.0'
     implementation 'com.google.firebase:firebase-encoders:18.0.0'
     implementation 'com.google.firebase:firebase-encoders-json:18.0.0'
     implementation 'com.google.android.datatransport:transport-backend-cct:2.3.3'
 
-    // AndroidX dependencies
+    // AndroidX support libraries
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.9.0'
