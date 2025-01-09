@@ -4,7 +4,7 @@ buildscript {
         mavenCentral() // Replace deprecated jcenter() with mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2' // Ensure a compatible Gradle version
+        classpath 'com.android.tools.build:gradle:7.5' // Updated for Gradle 7.5 compatibility
     }
 }
 
