@@ -4,11 +4,11 @@ version '1.0-SNAPSHOT'
 buildscript {
     repositories {
         google()
-        mavenCentral() // Replace jcenter with mavenCentral
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1' // Use a compatible version
+        classpath 'com.android.tools.build:gradle:7.4.2'
     }
 }
 
