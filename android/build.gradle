@@ -4,39 +4,43 @@ version '1.0-SNAPSHOT'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral() // Replace deprecated jcenter() with mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:7.5' // Updated Gradle plugin version
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral() // Replace deprecated jcenter() with mavenCentral()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 34 // Updated to the latest stable version
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion 21 // Set a minimum version compatible with modern libraries
+        targetSdkVersion 34 // Match the compileSdkVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    // Added namespace property as per new requirements
+    namespace 'com.amolg.flutterbarcodescanner'
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1' // Updated to latest stable version
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.android.material:material:1.9.0' // Updated to latest stable version
+    implementation 'com.google.mlkit:barcode-scanning:17.0.3' // Replaced play-services-vision with ML Kit
 }
